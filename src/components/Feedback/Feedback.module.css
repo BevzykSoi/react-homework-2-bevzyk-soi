@@ -1,0 +1,81 @@
+button:focus-visible {
+    outline: none;
+}
+
+span {
+    font-weight: bold;
+}
+
+.feedback {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.title {
+    text-align: center;
+    font-size: 40px;
+    margin: 30px 0;
+}
+
+.feedbackButtons {
+    display: flex;
+    max-width: 350px;
+    justify-content: space-between;
+    margin: 0 auto;
+
+}
+
+.fButton {
+    width: 100px;
+    height: 45px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #bd1b1b;
+    transition: transform 0.1s;
+    color: #fff;
+    cursor: pointer;
+}
+
+.fButton:active {
+    transform: perspective(1px) scale(.90);
+}
+
+.stats {
+    text-align: center;
+    margin-top: 70px;
+}
+
+.stats h2 {
+    font-size: 30px;
+    color: #1b54bd;
+}
+
+.statsCount {
+    text-align: center;
+    display: flex;
+    max-width: 400px;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.countTitle {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.good {
+    color: #cbd445;
+}
+
+.neutral {
+    color: #093381;
+}
+
+.bad {
+    color: #09813f;
+}
+
+.total {
+    color: #b30404;
+}
