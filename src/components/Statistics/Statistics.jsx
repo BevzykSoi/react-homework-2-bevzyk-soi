@@ -1,4 +1,4 @@
-import styles from "../Feedback.module.css";
+import styles from "../../App.module.css";
 
 import propTypes from "prop-types";
 
@@ -22,7 +22,9 @@ const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
       </h4>
       <h4 className={styles.countTitle}>
         POSITIVE FEEDBACKS:{" "}
-        <span className={styles.total}>{Math.round((positivePercentage / total) * 100)}%</span>
+        <span className={styles.total}>
+          {Math.round((positivePercentage / total) * 100)}%
+        </span>
       </h4>
     </>
   );
