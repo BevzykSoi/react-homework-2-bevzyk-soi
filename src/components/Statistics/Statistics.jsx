@@ -23,7 +23,7 @@ const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
       <h4 className={styles.countTitle}>
         POSITIVE FEEDBACKS:{" "}
         <span className={styles.total}>
-          {Math.round((positivePercentage / total) * 100)}%
+          {positivePercentage}%
         </span>
       </h4>
     </>

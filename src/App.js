@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import Section from "./components/Section/Section.jsx";
 import Statistics from "./components/Statistics/Statistics.jsx";
@@ -6,25 +6,19 @@ import FeedbackOptions from "./components/FeedbackOptions/FeedbackOptions.jsx";
 import Notification from "./components/Notification/Notification.jsx";
 
 export default class App extends React.Component {
-  constructor() {
-    super();
-
-    this.posFeedback = 0;
-  }
-
   state = {
     good: 0,
     neutral: 0,
     bad: 0,
   };
 
+  posFeedback = 0;
+
   handleCountChange = (event) => {
-    const { name, value } = event.target;
+    const { name } = event.target;
     this.setState((prevState) => ({
       [name]: prevState[name] + 1,
     }));
-
-    this.countPositiveFeedbackPercentage(value);
   };
 
   countTotalFeedback = () => {
@@ -32,20 +26,25 @@ export default class App extends React.Component {
     return good + neutral + bad;
   };
 
-  countPositiveFeedbackPercentage = (value) => {
-    const changedValue = parseFloat(value);
-    this.posFeedback += changedValue;
+  countPositiveFeedbackPercentage = () => {
+    this.posFeedback = parseFloat(
+      Math.round(
+        (this.state.good * 100 + this.state.neutral * 50) /
+          this.countTotalFeedback()
+      )
+    );
   };
 
   render() {
     const { good, neutral, bad } = this.state;
+    this.countPositiveFeedbackPercentage();
 
     return (
       <React.Fragment>
         <Section title="Please, leave feedback!">
           {" "}
           <FeedbackOptions
-            options={{ good: "1", neutral: "0.5", bad: "0" }}
+            options={this.state}
             onLeaveFeedback={this.handleCountChange}
           />
         </Section>
@@ -65,4 +64,4 @@ export default class App extends React.Component {
       </React.Fragment>
     );
   }
-};
+}
